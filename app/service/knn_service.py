@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn.preprocessing import StandardScaler
 
 
-def knn_analise(entrada: []):
+def knn_analise(entrada: {}):
     # importando o arquivo
     data = pd.read_csv("./app/data/acoes_class.csv", sep=",")
 
@@ -31,7 +31,20 @@ def knn_analise(entrada: []):
     knn.fit(X_train, y_train)
 
     # PL, PVP, DY, PAtivo, ROE, PCap PEBIT, PSR, ROIC
-    entradaProcessada = np.array(entrada)
+    dadosEntrada = [
+        entrada["P/L"],
+        entrada["P/VP"],
+        entrada["DY"],
+        entrada["P/Ativo"],
+        entrada["ROE"],
+        entrada["P/Cap.Giro"],
+        entrada["P/EBIT"],
+        entrada["PSR"],
+        entrada["ROIC"],
+    ]
+    print(dadosEntrada)
+
+    entradaProcessada = np.array(dadosEntrada)
 
     # Reshape do exemplo para formato 2D (uma única linha)
     X_new = entradaProcessada.reshape(1, -1)
