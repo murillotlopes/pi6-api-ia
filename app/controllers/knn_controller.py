@@ -16,4 +16,4 @@ def analise():
     # pegar as infromaçoes retornadas da base e analisar com o knn
     classificacao = knn_service.knn_analise(empresa)
 
-    return jsonify({"recomendação": classificacao[0]})
+    return jsonify({"recomendacao": classificacao[0]})
